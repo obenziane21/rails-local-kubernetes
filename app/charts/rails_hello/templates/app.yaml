@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: railsapp-deployment-web
+  namespace: "default"
+  labels:
+    app.kubernetes.io/name: railsapp-deployment
+    process: web
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  strategy:
+   rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+   type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: railsapp-deployment
+      process: web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: railsapp-deployment
+        process: web
+    spec:
+      containers:
+        - name: "railsapp-deployment-web"
+          image: "rails_hello:v1"
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: POSTGRES_HOST
+            value: "railsapp-db"
+          - name: POSTGRES_USER
+            value: "postgres"
+          - name: POSTGRES_PASSWD
+            value: "postgres"
+          ports:
+            - name: railsapp
+              containerPort: 3000
+              protocol: TCP
+          stdin: true
+          tty: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
