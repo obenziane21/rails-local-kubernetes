@@ -1,19 +1,17 @@
-## Install/Upgrade Ruby on rails app on docker desktop
+## Install/Upgrade Ruby on rails app on docker desktop & local kubernetes
 
 ## Description
 
 * This project is for building a hello rails app using terraform inside a docker desktop (local Kubernetes enabled).
 * This also install nginx ingress controller along with redis service.
-* A rails app has been dockerized, please find the project under "app/docker" folder
-
-
+* A rails app has been dockerized, please find the project under "app/docker" folder along with the Dockerfile
 
 ## Required tools
 
-kubectl
-terraform >= v1.4.6
-helm tools
-docker desktop for mac/windows
+* kubectl
+* terraform >= v1.4.6
+* helm tools
+* docker desktop for mac/windows
 
 ## Steps:
 
@@ -28,7 +26,7 @@ terraform init
 terraform apply
 ```
 
-* One the provisioning is Complete, please add an entry to your /etc/hosts
+* One the provisioning is Complete, please add an entry to your /etc/hosts (nip.io is preferable).
 
 ```
 127.0.0.1     rails.devops.local
@@ -41,7 +39,7 @@ terraform apply
 
 ## Monitoring ingress logs
 
-* While hitting the endpoint: http://http://rails.devops.local ,we get http logs from the ingress nginx controller pod
+* While hitting the endpoint: http://rails.devops.local ,we get http logs from the ingress nginx controller pod
 
 
 ```
