@@ -2,15 +2,15 @@
 
 ## Description
 
-* This project is for building a hello rails app using terraform inside a docker desktop (local Kubernetes enabled).
-* This also install nginx ingress controller along with redis service.
+* This project is for building a hello rails app using terraform and helm chart inside a docker desktop (local Kubernetes enabled).
+* This also install nginx ingress controller along with redis service using helm providers
 * A rails app has been dockerized, please find the project under "app/docker" folder along with the Dockerfile
 
 ## Required tools
 
 * kubectl
 * terraform >= v1.4.6
-* helm tools
+* helm
 * docker desktop for mac/windows
 
 ## Steps:
