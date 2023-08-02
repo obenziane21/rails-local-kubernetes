@@ -17,7 +17,8 @@
 
 * Install docker desktop and enable kubernetes support from the settings page.
 
-Note: This might take up 5 mins to finish the setup
+<img width="1022" alt="Screenshot 2023-06-06 at 7 21 00 AM" src="https://github.com/obenziane21/rails-local-kubernetes/assets/29074361/91395922-4ff2-4ddd-b4ab-01d40ba3449c">
+
 
 * Head on the terraform folder and run the setup, please make sure that you are using a version >= v1.4.6
 
@@ -25,6 +26,8 @@ Note: This might take up 5 mins to finish the setup
 terraform init
 terraform apply
 ```
+
+Note: This might take up 5 mins to finish the setup
 
 * One the provisioning is Complete, please add an entry to your /etc/hosts (nip.io is preferable).
 
